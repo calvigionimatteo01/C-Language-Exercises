@@ -40,7 +40,7 @@ void analisi(int *a, int n) {
             }
     }
     printf("\nSomma = %d", somma);
-    printf("\nMedia = %.4f\n", (double)(somma / n));
+    printf("\nMedia = %.4f\n", (double)somma / n);
     printf("\nPari = %d, Dispari = %d\n", pari, dispari);
 }
 
