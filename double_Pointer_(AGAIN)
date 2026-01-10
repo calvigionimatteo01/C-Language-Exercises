@@ -1,0 +1,43 @@
+//Lavoriamo, ancora, con i Double_pointer. 
+//Useremo il tipo di dato int.
+//Speriamo bene ... ;)
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MC 10
+
+int main(void) {
+    
+    //Subito in HEAP con malloc().
+    int **pp = malloc(sizeof(int*) * MC);
+    
+    for (int i = 0; i < MC; i++) {
+        
+        //Alloco in HEAP i singoli puntatori ad int. 
+        pp[i] = malloc(sizeof(int));
+        
+    }
+    
+    for (int i = 0; i < MC; i++) {
+        
+        //Metto un pattern - binario per comodità. 
+        
+        *(pp[i]) = (i % 2);
+        printf("%d ", *(pp[i]));
+        
+    }
+    
+    //p[i] == puntatore ad int
+    //*(p[i]) == int
+    
+    //Doverosi free();
+    
+    for (int i = 0; i < MC; i++) {
+        free(pp[i]);
+    }
+    
+    free(pp);
+    
+    return(0);
+}
